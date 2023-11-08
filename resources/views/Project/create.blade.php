@@ -24,16 +24,14 @@
         @method('POST')
 
                 <label>Project Name</label><br>
-                <input type="text" name="proj_name" placeholder="Project Name">
+                <input type="text" name="proj_name" placeholder="Project Name"><br><br>
     
                 <label>Project Status<label><br>
                     <select name="proj_status" >
                         <option value="In process">In process</option>
                         <option value="Complete"> Complete</option>
                     </select>
-
-                <br>
-            <div>
+            <div><br>
                 <label>PIC<label><br>
                     <select name="pic_id">
                         @foreach ($pic as $pics)
@@ -41,7 +39,7 @@
                             <option value="{{ ($pics->pic_id) }}">{{ $pics->pic_name }}</option>
                         @endforeach
                     </select>
-                    <br><br>
+                    <br>
             </div>
 <br>
 
