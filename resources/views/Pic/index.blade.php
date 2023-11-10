@@ -8,19 +8,20 @@
     </x-slot>
 
     <div class="board">
-        <h1>PICs</h1><br>
+        
+        <br>
         <a id="btn-addnew" value="Add PIC" href="{{ route('Pic.create')}}">Add PIC</a>
-
+    <div>
         <!--table class="w-full text-sm text-left text-black dark:text-black"-->
         <section class="table-body">
             <table>
                 <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Phone Number</th>
-                    <th>Email</th>
-                    <th colspan="3">Action</th>
+                    <th scope="col" class="px-6 py-3">ID</th>
+                    <th scope="col" class="px-6 py-3">Name</th>
+                    <th scope="col" class="px-6 py-3">Phone Number</th>
+                    <th scope="col" class="px-6 py-3">Email</th>
+                    <th  class="px-6 py-3" colspan="3">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -62,6 +63,7 @@
             </tbody>
             </table>
         </section>
+    </div>
       
     </div>
 </x-app-layout>

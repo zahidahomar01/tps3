@@ -20,7 +20,8 @@ class Pic extends Model
 
     ];
 
-    public function project(){
-        return $this->hasMany((\App\Models\Project::class));
-    }
+    public function projects(){
+        return $this->hasMany(Project::class, 'pic_id');
+}
+
 }
