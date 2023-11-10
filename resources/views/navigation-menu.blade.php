@@ -22,8 +22,10 @@
                         <x-nav-link>
                                 <a href="{{ route('Project.index') }}" :active="request()->routeIs('Project.index')">{{ __('List of Projects') }}</a>
                                 <a href="{{ route('Project.create') }}" :active="request()->routeIs('Project.create')">{{ __('Create Project') }}</a>
+                                <a href="{{ route('Pic.index') }}" :active="request()->routeIs('Pic.index')">{{ __('List of PIC') }}</a>
                         
                         </x-nav-link>
+                    </button>
                    
                 </div>
             </div>
@@ -158,6 +160,8 @@
                         <div class="dropdown-content">
                             <a href="{{ route('Project.index') }}" :active="request()->routeIs('Project.index')">{{ __('List of Projects') }}</a>
                             <a href="{{ route('Project.create') }}" :active="request()->routeIs('Project.create')">{{ __('Create Project') }}</a>
+                            <a href="{{ route('Pic.index') }}" :active="request()->routeIs('Pic.index')">{{ __('List of PIC') }}</a>
+
                     </x-responsive-nav-link>
                        
         </div>
