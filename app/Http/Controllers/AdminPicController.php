@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Pic;
 use App\Models\Project;
 
-class PicController extends Controller
+class AdminPicController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class PicController extends Controller
     public function index()
     {
         $pics = Pic::all();
-        return view('Pic.index', compact('pics'));
+        return view('Admin.Pic.index', compact('pics'));
     }
 
 
@@ -23,7 +23,7 @@ class PicController extends Controller
      */
     public function create()
     {
-        return view('Pic.create');
+        return view('Admin.Pic.create');
     }
 
     /**
@@ -38,7 +38,7 @@ class PicController extends Controller
         ]);
 
         Pic::create($data);
-        return redirect()->route('Pic.index')->with('success','PIC created successfully');
+        return redirect()->route('Admin.Pic.index')->with('success','PIC created successfully');
     }
 
     /**
@@ -47,7 +47,7 @@ class PicController extends Controller
     public function show($pic_id)
     {
         $pic = Pic::find($pic_id);
-        return view('Pic.show', compact('pic'));
+        return view('Admin.Pic.show', compact('pic'));
     }
 
     /**
@@ -56,7 +56,7 @@ class PicController extends Controller
     public function edit($pic_id)
     {
         $pic = Pic::find($pic_id);
-        return view('Pic.edit', compact('pic'));
+        return view('Admin.Pic.edit', compact('pic'));
     }
 
     /**
@@ -71,7 +71,7 @@ class PicController extends Controller
         ]);
 
         $pic->update($data);
-        return redirect()->route('Pic.index')->with('success','Pic updated successfully');
+        return redirect()->route('Admin.Pic.index')->with('success','Pic updated successfully');
     }
     /**
      * Remove the specified resource from storage.
@@ -83,3 +83,5 @@ class PicController extends Controller
     }
 
 }
+
+?>

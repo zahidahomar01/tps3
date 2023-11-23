@@ -16,29 +16,19 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
-                    @if (Auth::check() && Auth::user()->role == 1)
-                        <!-- Admin Links -->
-                        <button class="dropdown">
-                            Manage Project <i class="fa fa-caret-down"></i>
-                            <div class="dropdown-content">
-                                <x-nav-link>
-                                    <a href="{{ route('Admin.Project.index') }}" :active="request()->routeIs('Admin.Project.index')">{{ __('List of Projects') }}</a>
-                                    <a href="{{ route('Admin.Project.create') }}" :active="request()->routeIs('Admin.Project.create')">{{ __('Create Project') }}</a>
-                                    <a href="{{ route('Admin.Pic.index') }}" :active="request()->routeIs('Admin.Pic.index')">{{ __('List of PIC') }}</a>
-                                </x-nav-link>
-                            </div>
-                        </button>
-                    @else
-                        <!-- User Links -->
-                        <x-nav-link href="{{ route('User.Project.index') }}" :active="request()->routeIs('User.Project.index')">
-                            {{ __('List of Projects') }}
+                    <button class="dropdown" >Manage Project
+                         <i class="fa fa-caret-down"></i>
+                         <div class="dropdown-content">
+                        <x-nav-link>
+                                <a href="{{ route('Project.index') }}" :active="request()->routeIs('Project.index')">{{ __('List of Projects') }}</a>
+                                <a href="{{ route('Project.create') }}" :active="request()->routeIs('Project.create')">{{ __('Create Project') }}</a>
+                                <a href="{{ route('Pic.index') }}" :active="request()->routeIs('Pic.index')">{{ __('List of PIC') }}</a>
+                        
                         </x-nav-link>
-                        <x-nav-link href="{{ route('User.Pic.index') }}" :active="request()->routeIs('User.Pic.index')">
-                            {{ __('List of PICs') }}
-                        </x-nav-link>
-                       
-                    @endif
+                    </button>
+                   
                 </div>
+            </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <!-- Teams Dropdown -->
@@ -168,8 +158,9 @@
                 <button class="dropdown" >Manage Project
                     <x-responsive-nav-link >
                         <div class="dropdown-content">
-                            <a href="{{ route('User.Project.index') }}" :active="request()->routeIs('User.Project.index')">{{ __('List of Projects') }}</a>
-                            <a href="{{ route('User.Pic.index') }}" :active="request()->routeIs('User.Pic.index')">{{ __('List of PIC') }}</a>
+                            <a href="{{ route('Project.index') }}" :active="request()->routeIs('Project.index')">{{ __('List of Projects') }}</a>
+                            <a href="{{ route('Project.create') }}" :active="request()->routeIs('Project.create')">{{ __('Create Project') }}</a>
+                            <a href="{{ route('Pic.index') }}" :active="request()->routeIs('Pic.index')">{{ __('List of PIC') }}</a>
 
                     </x-responsive-nav-link>
                        
