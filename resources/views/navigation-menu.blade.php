@@ -12,11 +12,13 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
+                    
 
                     @if (Auth::check() && Auth::user()->role == 1)
+                    
+                    <x-nav-link href="{{ route('Admin.Dashboard') }}" :active="request()->routeIs('Admin.Dashboard')">
+                        {{ __('Dashboard') }}
+                    </x-nav-link>
                         <!-- Admin Links -->
                         <button class="dropdown">
                             Manage Project <i class="fa fa-caret-down"></i>

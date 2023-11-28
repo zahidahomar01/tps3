@@ -1,3 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    align-items:center;
+    justify-content: center;
+}
 
 .dropbtn-nav{
 	margin-bottom: 10px;
@@ -233,6 +243,12 @@ form input{
     }
 
 
+    .skill{
+        width:160px;
+        height:160px;
+        background-color:#86e49d;
+        position: relative;
+    }
 }
 
     

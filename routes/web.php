@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminProjectController;
 use App\Http\Controllers\AdminPicController;
 use App\Http\Controllers\AdminJobController;
@@ -40,19 +41,20 @@ Route::middleware([
     Route::get('User/Project', [UserProjectController::class, 'index'])->name('User.Project.index');
 
     Route::get('User/Pic', [UserPicController::class, 'index'])->name('User.Pic.index');
-    Route::get('User/Pic/create', [UserPicController::class, 'create'])->name('User.Pic.create');
+    // Route::get('User/Pic/create', [UserPicController::class, 'create'])->name('User.Pic.create');
     Route::get('User/Pic/{pic}', [UserPicController::class, 'show'])->name('User.Pic.show');
-    Route::get('User/Pic/{pic}/edit', [UserPicController::class, 'edit'])->name('User.Pic.edit');
-    Route::delete('User/Pic/{pic}', [UserPicController::class, 'destroy'])->name('User.Pic.destroy');
-    Route::put('User/Pic/{pic}',[UserPicController::class, 'update'])->name('User.Pic.update');
-    Route::post('User/Pic', [UserPicController::class,'store'])->name('User.Pic.store');
+    // Route::get('User/Pic/{pic}/edit', [UserPicController::class, 'edit'])->name('User.Pic.edit');
+    // Route::delete('User/Pic/{pic}', [UserPicController::class, 'destroy'])->name('User.Pic.destroy');
+    // Route::put('User/Pic/{pic}',[UserPicController::class, 'update'])->name('User.Pic.update');
+    // Route::post('User/Pic', [UserPicController::class,'store'])->name('User.Pic.store');
 
     Route::get('User/Project/{project}/Job', [UserJobController::class, 'index'])->name('User.Job.index');
     
     //Admin
     Route::middleware(['auth', 'admin'])->group(function () 
     
-        {
+        {   
+            Route::get('Admin.Dashboard', [AdminDashboardController::class, 'index'])->name('Admin.Dashboard');
             Route::resource('Admin/Project', AdminProjectController::class)->middleware('admin');
             Route::resource('Admin/Pic', AdminPicController::class)->middleware('admin');
             Route::resource('Admin/Job', AdminJobController::class)->middleware('admin');

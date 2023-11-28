@@ -26,5 +26,4 @@ class Job extends Eloquent
     {
         return $this->belongsTo(Project::class, 'proj_id', 'proj_id');
     }
-    
 }

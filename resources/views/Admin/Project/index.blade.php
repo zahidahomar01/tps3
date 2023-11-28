@@ -1,4 +1,5 @@
 <link href="/CSS/main.css" rel="stylesheet">
+<link href="/CSS/style.css" rel="stylesheet">
 <x-app-layout>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
@@ -6,7 +7,8 @@
         </h2>
     </x-slot>
  
-    <div class="board">
+
+ <div class="board">
     <br>
         <a id="btn-addnew" href="{{route ('Admin.Pic.create')}}">Add PIC</a>
         <a id="btn-addnew" href="{{route ('Admin.Project.create')}}">Add Projects</a> <br><br>
