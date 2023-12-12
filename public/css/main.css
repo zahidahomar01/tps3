@@ -4,10 +4,14 @@
     box-sizing: border-box;
 }
 
-body{
-    align-items:center;
+
+body {
+    align-items: center;
     justify-content: center;
+    background-image: url("public/img/ssdubg1.jpg"), url("public/img/ssdubg2.jpg");
+    background-color: #cccccc;
 }
+
 li.dropdown {
     display: inline-block;
   }
