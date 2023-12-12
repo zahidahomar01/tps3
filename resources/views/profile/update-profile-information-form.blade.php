@@ -1,3 +1,4 @@
+<link href="/CSS/main.css" rel="stylesheet">
 <x-form-section submit="updateProfileInformation">
     <x-slot name="title">
         {{ __('Profile Information') }}

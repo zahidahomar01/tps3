@@ -8,7 +8,9 @@
     </x-slot>
  
     <div class="board">
-        <h1>{{ $pic->pic_name }}</h1>
+        <br>
+            <h2 class="h2-table">{{ $pic->pic_name }}</h2>
+        <br>
         <table> 
             <thead>
                 <tr>

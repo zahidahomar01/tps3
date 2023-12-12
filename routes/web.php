@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AdminProjectController;
 use App\Http\Controllers\AdminPicController;
 use App\Http\Controllers\AdminJobController;
@@ -37,17 +38,9 @@ Route::middleware([
     Route::resource('User/Project', UserProjectController::class)->middleware('auth');
     Route::resource('User/Pic', UserPicController::class)->middleware('auth');
     Route::resource('User/Job', UserJobController::class)->middleware('auth');
-   
     Route::get('User/Project', [UserProjectController::class, 'index'])->name('User.Project.index');
-
     Route::get('User/Pic', [UserPicController::class, 'index'])->name('User.Pic.index');
-    // Route::get('User/Pic/create', [UserPicController::class, 'create'])->name('User.Pic.create');
     Route::get('User/Pic/{pic}', [UserPicController::class, 'show'])->name('User.Pic.show');
-    // Route::get('User/Pic/{pic}/edit', [UserPicController::class, 'edit'])->name('User.Pic.edit');
-    // Route::delete('User/Pic/{pic}', [UserPicController::class, 'destroy'])->name('User.Pic.destroy');
-    // Route::put('User/Pic/{pic}',[UserPicController::class, 'update'])->name('User.Pic.update');
-    // Route::post('User/Pic', [UserPicController::class,'store'])->name('User.Pic.store');
-
     Route::get('User/Project/{project}/Job', [UserJobController::class, 'index'])->name('User.Job.index');
     
     //Admin
@@ -55,10 +48,21 @@ Route::middleware([
     
         {   
             Route::get('Admin.Dashboard', [AdminDashboardController::class, 'index'])->name('Admin.Dashboard');
+            Route::resource('Admin/Admin', AdminUserController::class)->middleware('admin');
             Route::resource('Admin/Project', AdminProjectController::class)->middleware('admin');
             Route::resource('Admin/Pic', AdminPicController::class)->middleware('admin');
             Route::resource('Admin/Job', AdminJobController::class)->middleware('admin');
         
+
+            Route::get('Admin/User', [AdminUserController::class, 'index'])->name('Admin.User.index');
+            Route::get('Admin/User/create', [AdminUserController::class, 'create'])->name('Admin.User.create');
+            Route::get('Admin/User/{user}', [AdminUserController::class, 'show'])->name('Admin.User.show');
+            Route::get('Admin/User/{user}/edit', [AdminUserController::class, 'edit'])->name('Admin.User.edit');
+            Route::delete('Admin/User/{user}', [AdminUserController::class, 'destroy'])->name('Admin.User.destroy');
+            Route::put('Admin/User/{user}',[AdminUserController::class, 'update'])->name('Admin.User.update');
+            Route::post('Admin/User', [AdminUserController::class,'store'])->name('Admin.User.store');
+
+
             Route::get('Admin/Project', [AdminProjectController::class, 'index'])->name('Admin.Project.index');
             Route::get('Admin/Project/create', [AdminProjectController::class, 'create'])->name('Admin.Project.create');
             Route::get('Admin/Project/{project}/Project', [AdminJobController::class, 'show'])->name('Admin.Project.show');

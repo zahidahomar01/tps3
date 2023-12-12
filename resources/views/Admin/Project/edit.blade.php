@@ -24,7 +24,7 @@
             @csrf  <!--safety purpose-->
             @method('PUT')
             <div>
-                <label>Project Name</label>
+                <label>Project Name</label><br>
                 <input type="text" name="proj_name" value="{{$project->proj_name}}">
             </div>
 

@@ -1,3 +1,4 @@
+<link href="/CSS/main.css" rel="stylesheet">
 <x-action-section>
     <x-slot name="title">
         {{ __('Two Factor Authentication') }}

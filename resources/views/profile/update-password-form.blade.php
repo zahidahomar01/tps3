@@ -1,3 +1,4 @@
+<link href="/CSS/main.css" rel="stylesheet">
 <x-form-section submit="updatePassword">
     <x-slot name="title">
         {{ __('Update Password') }}
