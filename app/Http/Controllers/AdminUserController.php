@@ -20,13 +20,18 @@ class AdminUserController extends Controller
 
     public function store (Request $request)
     {
-        $data = $request->validate([
+         $request->validate([
             'name' =>'required',
             'email' => 'required',
-            'password' => 'required',
+            'password' => 'required|min:8|regex:/^(?=.*[A-Za-z])(?=.*\d).+$/',
             'role' => 'required|in:0,1', //to makesure only int 0 or 1 insert 
         ]);
-        User::create($data);
+        $data =User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password), 
+        ]);
+
         return redirect()->route('Admin.User.index')->with('success','User created successfully');
     }
 
@@ -40,10 +45,15 @@ class AdminUserController extends Controller
     {
         $data = $request->validate([
             'name'=> 'required',
-            'email'=> 'required',
+            // 'email'=> 'required',
+            'email' => 'required|email|unique:users,email,' . $user->id,
             'role' => 'required',
         ]);
 
+        if (!empty($request->input('password'))) {
+            $data['password'] = bcrypt($request->input('password'));
+        }
+    
         $user->update($data);
 
         return redirect()->route('Admin.User.index')->with('success','User updated Successfully');

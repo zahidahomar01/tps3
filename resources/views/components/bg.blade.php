@@ -1,0 +1,1 @@
+<img src="{{ asset('img/shahalam.jpg')}}" width="100%" height="100%">

@@ -8,16 +8,13 @@
 
     <div>
         @if($errors->any())
-        <ul>
-            @foreach($errors->all() as $error)
-                <li>
-                    {{ $error }}
-                </li>
-            @endforeach
-        </ul>
+            <script>
+                // Display error messages in an alert
+                alert("{{ implode('\n', $errors->all()) }}");
+            </script>
         @endif
     </div>
-
+    
 <div class="wrapper">
     <form action="{{ route('Admin.User.store')}}" method="POST" >
         @csrf  <!--safety purpose-->

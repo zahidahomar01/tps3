@@ -5,20 +5,18 @@
             {{ __('Create PIC') }}
         </h2>
     </x-slot>
-
-    <div>
+    
+<div class="wrapper">
+    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-red-800 dark:text-red-400" role="alert">
         @if($errors->any())
-        <ul>
-            @foreach($errors->all() as $error)
-                <li>
-                    {{ $error }}
-                </li>
-            @endforeach
-        </ul>
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         @endif
     </div>
-
-<div class="wrapper">
+    
     <form action="{{ route('Admin.Pic.store')}}" method="POST" >
         @csrf  <!--safety purpose-->
         @method('POST')

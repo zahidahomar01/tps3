@@ -17,6 +17,7 @@
             <table>
                 <thead>
                 <tr>
+                    <th scope="col" class="px-6 py-3">No.</th>
                     <th scope="col" class="px-6 py-3">ID</th>
                     <th scope="col" class="px-6 py-3">Name</th>
                     <th scope="col" class="px-6 py-3">Phone Number</th>
@@ -27,6 +28,7 @@
             <tbody>
                 @foreach($pics as $pic)
                 <tr>
+                    <td>{{ $loop->iteration }}</td>
                     <td>{{ $pic->pic_id }}</td>
                     <td>{{ $pic->pic_name }}</td>
                     <td>{{ $pic->pic_hp }}</td>

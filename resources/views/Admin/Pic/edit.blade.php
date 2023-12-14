@@ -6,19 +6,18 @@
         </h2>
     </x-slot>
 
-    <div>
+
+<div class="wrapper">
+    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-red-800 dark:text-red-400" role="alert">
         @if($errors->any())
-        <ul>
-            @foreach($errors->all() as $error)
-                <li>
-                    {{ $error }}
-                </li>
-            @endforeach
-        </ul>
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         @endif
     </div>
 
-<div class="wrapper">
     @if ($pic)
         <form method="POST" action="{{route('Admin.Pic.update', $pic->pic_id)}}">
             @csrf  <!--safety purpose-->
@@ -37,12 +36,10 @@
                 <label>Email<label><br>
                 <input type="email" name="pic_email" value="{{$pic->pic_email}}"><br><br>
             </div>
-            <input id="btn-addnew" type="submit" value="Add PIC"></input>
-        
-      
-    </form>
-        @else
-            <p>PIC not found</p>
-        @endif
+            <input id="btn-addnew" type="submit" value="Update"></input>
+        </form>
+    @else
+        <p>PIC not found</p>
+    @endif
 </div>
 </x-app-layout>

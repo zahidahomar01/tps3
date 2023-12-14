@@ -8,13 +8,10 @@
 
     <div>
         @if($errors->any())
-        <ul>
-            @foreach($errors->all() as $error)
-                <li>
-                    {{ $error }}
-                </li>
-            @endforeach
-        </ul>
+            <script>
+                // Display error messages in an alert
+                alert("{{ implode('\n', $errors->all()) }}");
+            </script>
         @endif
     </div>
 
@@ -41,7 +38,7 @@
                 </select><br><br>
             </div>
 
-            <input id="btn-addnew" type="submit" value="Add User"></input>
+            <input id="btn-addnew" type="submit" value="Update"></input>
         
       
     </form>

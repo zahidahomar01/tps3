@@ -10,6 +10,9 @@
 
  <div class="board">
     <br>
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Button
+    </button>
         <a id="btn-addnew" href="{{route ('Admin.Pic.create')}}">Add PIC</a>
         <a id="btn-addnew" href="{{route ('Admin.Project.create')}}">Add Projects</a> <br><br>
         <div>
@@ -18,6 +21,7 @@
                 <table> 
                     <thead>
                         <tr >
+                            <th scope="col" class="px-6 py-3">No.</th>
                             <th scope="col" class="px-6 py-3">ID</th>
                             <th scope="col" class="px-6 py-3">Project</th>
                             <th scope="col" class="px-6 py-3">PIC</th>
@@ -30,6 +34,7 @@
                     <tbody>
                         @foreach($projects as $project)
                             <tr id="projtb">
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $project->proj_id }}</td>
                                 <td>{{ $project->proj_name }}</td>
                                 <td>

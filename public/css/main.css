@@ -8,8 +8,7 @@
 body {
     align-items: center;
     justify-content: center;
-    background-image: url("public/img/ssdubg1.jpg"), url("public/img/ssdubg2.jpg");
-    background-color: #cccccc;
+   
 }
 
 li.dropdown {
@@ -237,7 +236,13 @@ form input{
     background-color: #ebc473;
 }
 
-
+.error-box {
+    border: 1px solid #ffeeee;
+    background-color: #ffeeee;
+    color: #ff0000;
+    padding: 10px;
+    margin-bottom: 10px;
+}
 
 @media (max-width: 769px){
   

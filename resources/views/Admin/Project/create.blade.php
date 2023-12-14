@@ -6,19 +6,19 @@
         </h2>
     </x-slot>
 
-    <div>
+
+
+<div class="wrapper">
+    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-red-800 dark:text-red-400" role="alert">
         @if($errors->any())
-        <ul>
-            @foreach($errors->all() as $error)
-                <li>
-                    {{ $error }}
-                </li>
-            @endforeach
-        </ul>
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         @endif
     </div>
 
-<div class="wrapper">
     <form action="{{ route('Admin.Project.store')}}" method="POST" >
         @csrf  <!--safety purpose-->
         @method('POST')
@@ -31,17 +31,18 @@
                         <option value="In process">In process</option>
                         <option value="Complete"> Complete</option>
                     </select>
-            <div><br>
+            <div>
+                <br>
                 <label>PIC<label><br>
                     <select name="pic_id">
+                        <option></option>
                         @foreach ($pic as $pics)
-                            <option></option>
                             <option value="{{ ($pics->pic_id) }}">{{ $pics->pic_name }}</option>
                         @endforeach
                     </select>
                     <br>
             </div>
-<br>
+            <br>
 
             <label>Date</label><br>
             <input type="date" name="proj_date" placeholder="Date"><br> <br>

@@ -17,6 +17,7 @@
             <table>
                 <thead>
                 <tr>
+                    <th scope="col" class="px-6 py-3">No.</th>
                     <th scope="col" class="px-6 py-3">ID</th>
                     <th scope="col" class="px-6 py-3">Name</th>
                     <th scope="col" class="px-6 py-3">Email</th>
@@ -27,6 +28,7 @@
             <tbody>
                 @foreach($user as $users)
                 <tr>
+                    <td>{{ $loop->iteration }}</td>
                     <td>{{ $users->id }}</td>
                     <td>{{ $users->name }}</td>
                     <td>{{ $users->email }}</td>
