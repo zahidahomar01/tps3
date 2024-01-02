@@ -14,7 +14,7 @@
                 <table> 
                     <thead>
                         <tr >
-                            <th scope="col" class="px-6 py-3">ID</th>
+                            <th scope="col" class="px-6 py-3">No.</th>
                             <th scope="col" class="px-6 py-3">Project</th>
                             <th scope="col" class="px-6 py-3">PIC</th>
                             <th scope="col" class="px-6 py-3">Status</th>
@@ -24,10 +24,10 @@
                     </thead>
                     <tbody>
                         @foreach($projects as $project)
-                            <tr id="projtb">
-                                <td>{{ $project->proj_id }}</td>
-                                <td>{{ $project->proj_name }}</td>
-                                <td>
+                            <tr id="projtb" >
+                                <td scope="col" class="px-6 py-3">{{ $loop->iteration }}</td>
+                                <td scope="col" class="px-6 py-3">{{ $project->proj_name }}</td>
+                                <td scope="col" class="px-6 py-3">
                                     @if ($project->pic)
                                         <ul>
                                                 <li class="w-full text-sm text-center text-black dark:text-black">
@@ -41,8 +41,19 @@
                                         No PIC assigned.
                                     @endif
                                 </td>
-                                <td>{{ $project->proj_status }}</td>
-                                <td>{{ $project->proj_date }}</td>
+                                <td scope="col" class="px-6 py-3">
+                                    @if ($project->proj_status==='Complete')
+                                        <div class="rounded rounded-full text-green-600 dark:text-green">
+                                            {{$project->proj_status}}
+                                        </div>
+                                    @else 
+                                        <div class="rounded rounded-full text-red-600 dark:text-red">
+                                            {{$project->proj_status}}
+                                        </div>
+                                    @endif
+                                </td>
+                                
+                                <td scope="col"class="px-6 py-3">{{ $project->proj_date }}</td>
             
                                 <td scope="col"  class="px-6 py-3" class="details">
                                     <a href="{{ route('User.Job.index', ['project' => $project->proj_id]) }}">

@@ -10,7 +10,7 @@
     <div class="board">
         
         <br>
-        <a id="btn-addnew" value="Add User" href="{{ route('Admin.User.create')}}">Add Users</a>
+        <a id="btn-addnew" value="Add User" href="{{ route('Admin.User.create')}}">Create User</a>
     <div>
         <!--table class="w-full text-sm text-left text-black dark:text-black"-->
         <section class="table-body">
@@ -22,7 +22,7 @@
                     <th scope="col" class="px-6 py-3">Name</th>
                     <th scope="col" class="px-6 py-3">Email</th>
                     <th scope="col" class="px-6 py-3">Role</th>
-                    <th  class="px-6 py-3" colspan="3">Action</th>
+                    <th  class="px-300 py-3" colspan="2">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -40,8 +40,8 @@
                         @endif
                     </td>
                             
-                    <td class="edit">
-                        <a href="{{ route('Admin.User.edit', $users->id) }}">
+                    <td class="edit" >
+                        <a class="edit" href="{{ route('Admin.User.edit', $users->id) }}">
                             <svg class="h-5 w-5 text-indigo-500" width="24"  height="24"  viewBox="0 0 24 24"  xmlns="http://www.w3.org/2000/svg"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />  
                                 <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
                             </svg>

@@ -39,7 +39,9 @@ class AdminJobController extends Controller
         $job->job_remark = $data['job_remark'];
         $job->save();
 
-        return redirect()->route('Admin.Job.index', ['project' => $data['proj_id']]);
+        // return redirect()->route('Admin.Job.index', ['project' => $data['proj_id']]);
+        // dd($job->proj_id);
+        return redirect()->route('Admin.Job.index', ['project' => $job->proj_id]);
 }
 
     public function show($job_id)
@@ -54,21 +56,69 @@ class AdminJobController extends Controller
         return view('Admin.Job.edit', compact('job'));
     }
 
-    public function update(Request $request, Job $job)
+    // public function update(Request $request, Job $job)
+    // {
+    //     $data = $request->validate([
+    //         'job_name'=> 'required',
+    //         'job_date'=> 'required|date',
+    //         'job_status' => 'required',
+    //         'job_remark'=> 'required',
+    //     ]);
+    
+    //     $job->update($data);
+    
+    //     return redirect()->route('Admin.Job.index', ['project' => $job->proj_id]);
+    // }
+
+    public function update(Request $request, Project $project, $job_id)
     {
         $data = $request->validate([
+            'proj_id' => 'required|exists:projects,proj_id',
             'job_name'=> 'required',
             'job_date'=> 'required|date',
             'job_status' => 'required',
             'job_remark'=> 'required',
-            
         ]);
+        
+        $job = Job::find($job_id);
+        if ($job)
+         {
+            $job->proj_id = $data['proj_id'];
+            $job->job_name = $data['job_name'];
+            $job->job_date = $data['job_date'];
+            $job->job_status = $data['job_status'];
+            $job->job_remark = $data['job_remark'];
+            $job->save();
 
-        $job->update($data);
-        // $project = $job->project;
+            return redirect()->route('Admin.Job.index', ['project' => $data['proj_id']]);
+        }
+        else
+        {
 
-        return redirect()->route('Admin.Job.index', ['project' => $job->proj_id]);
+        }
+        }
+
+
+      /*  $job->update([
+            'proj_id' => $data['proj_id'],
+            'job_name' => $data['job_name'],
+            'job_date' => $data['job_date'],
+            'job_status' => $data['job_status'],
+            'job_remark' => $data['job_remark'],
+        ]);
+        return redirect()->route('Admin.Job.index', ['project' => $data['proj_id']]);
+    
     }
+        // $job->proj_id = $data['proj_id'];
+        // $job->job_name = $data['job_name'];
+        // $job->job_date = $data['job_date'];
+        // $job->job_status = $data['job_status'];
+        // $job->job_remark = $data['job_remark'];
+        // $job->update();
+
+        // return redirect()->route('Admin.Job.index', ['project' => $data['proj_id']]);
+    
+    */
     public function destroy($job_id)
     {
         $job = Job::find($job_id);

@@ -62,7 +62,7 @@ class AdminPicController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Pic $pic)
+    public function update(Request $request,  $pic_id)
     {
         $data = $request->validate([
             'pic_name'=> 'required',
@@ -70,9 +70,24 @@ class AdminPicController extends Controller
             'pic_email'=> 'required',
         ]);
 
-        $pic->update($data);
-        return redirect()->route('Admin.Pic.index')->with('success','Pic updated successfully');
+        $pic = Pic::find($pic_id);
+        if($pic)
+        {
+            $pic->pic_name= $data['pic_name'];
+            $pic->pic_hp= $data['pic_hp'];
+            $pic->pic_email= $data['pic_email'];
+            $pic->save();
+
+            return redirect()->route('Admin.Pic.index')->with('success','Pic updated successfully');
+
+        }
+        else
+        {
+
+        }
     }
+   
+
     /**
      * Remove the specified resource from storage.
      */

@@ -23,7 +23,7 @@ class AdminUserController extends Controller
          $request->validate([
             'name' =>'required',
             'email' => 'required',
-            'password' => 'required|min:8|regex:/^(?=.*[A-Za-z])(?=.*\d).+$/',
+            'password' => 'required|min:8|regex:/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&]).+$/',
             'role' => 'required|in:0,1', //to makesure only int 0 or 1 insert 
         ]);
         $data =User::create([

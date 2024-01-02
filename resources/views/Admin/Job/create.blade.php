@@ -3,36 +3,28 @@
 <x-app-layout>
 <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Add Job') }}
+            {{ __('Create Job') }}
         </h2>
     </x-slot>
     
 <div class="wrapper">
-    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-red-800 dark:text-red-400" role="alert">
-        @if($errors->any())
-            <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        @endif
-    </div>
+    <x-validation-errors class="mb-4" />
         <form method="POST" action="{{ route('Admin.Job.store')}}">
             @csrf  <!--safety purpose-->
 
             <div class="form-group">
                 <label>Job Name</label><br>
-                <input type="text" name="job_name">
+                <input type="text" name="job_name" required>
             </div>
 
             <div class="form-group">
                 <label>Date</label><br>
-                <input type="date" name="job_date"><br> <br>
+                <input type="date" name="job_date" required ><br> <br>
             </div>
 
             <div class="form-group">
                 <label>Status<label><br>
-                        <select name="job_status" >
+                        <select name="job_status" required>
                             <option value="In process">In process</option>
                             <option value="Complete">Complete</option>
                         </select>
@@ -55,7 +47,7 @@
                     @endforeach
                 </select>
             </div><br>
-                <input id="btn-addnew" type="submit">
+                <input id="btn-addnew" type="submit" value="Add Job">
       
   </form>
 </x-app-layout>

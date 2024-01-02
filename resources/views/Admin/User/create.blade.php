@@ -6,31 +6,26 @@
         </h2>
     </x-slot>
 
-    <div>
-        @if($errors->any())
-            <script>
-                // Display error messages in an alert
-                alert("{{ implode('\n', $errors->all()) }}");
-            </script>
-        @endif
-    </div>
-    
+
 <div class="wrapper">
+    
+    <x-validation-errors class="mb-4" />
+
     <form action="{{ route('Admin.User.store')}}" method="POST" >
         @csrf  <!--safety purpose-->
         @method('POST')
 
             <label>Name</label><br>
-            <input type="text" name="name"><br>
+            <input type="text" name="name" required><br>
    
             <label>password<label><br>
-            <input type="password" name="password"><br><br>
+            <input type="password" name="password" required><br><br>
 
             <label>Email<label><br>
-            <input type="email" name="email"><br>
+            <input type="email" name="email" required><br>
             <div>
                 <label>Role</label><br>
-                    <select name="role">
+                    <select name="role" required>
                         <option value="0">User</option>
                         <option value="1">Admin</option>
                     </select>

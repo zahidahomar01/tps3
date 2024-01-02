@@ -9,32 +9,24 @@
 
 
 <div class="wrapper">
-    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-red-800 dark:text-red-400" role="alert">
-        @if($errors->any())
-            <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        @endif
-    </div>
+    <x-validation-errors class="mb-4" />
 
     <form action="{{ route('Admin.Project.store')}}" method="POST" >
         @csrf  <!--safety purpose-->
         @method('POST')
 
                 <label>Project Name</label><br>
-                <input type="text" name="proj_name" placeholder="Project Name"><br><br>
+                <input type="text" name="proj_name" placeholder="Project Name" required><br><br>
     
                 <label>Project Status<label><br>
-                    <select name="proj_status" >
+                    <select name="proj_status" required>
                         <option value="In process">In process</option>
                         <option value="Complete"> Complete</option>
                     </select>
             <div>
                 <br>
                 <label>PIC<label><br>
-                    <select name="pic_id">
+                    <select name="pic_id" required>
                         <option></option>
                         @foreach ($pic as $pics)
                             <option value="{{ ($pics->pic_id) }}">{{ $pics->pic_name }}</option>

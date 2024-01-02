@@ -10,7 +10,7 @@
     <div class="board">
         
         <br>
-        <a id="btn-addnew" value="Add PIC" href="{{ route('Admin.Pic.create')}}">Add PIC</a>
+        <a id="btn-addnew" value="Add PIC" href="{{ route('Admin.Pic.create')}}">Create PIC</a>
     <div>
         <!--table class="w-full text-sm text-left text-black dark:text-black"-->
         <section class="table-body">

@@ -14,7 +14,7 @@
         <table> 
             <thead>
                 <tr>
-                    <th scope="col" class="px-6 py-3">ID</th>
+                    <th scope="col" class="px-6 py-3">No.</th>
                     <th scope="col" class="px-6 py-3">Project</th>
                     <th scope="col" class="px-6 py-3">Status</th>
                     <th scope="col" class="px-6 py-3">Date</th>
@@ -25,10 +25,22 @@
             <tbody>
                 @if($pic->projects)
                     @foreach($pic->projects as $project)
-                        <tr id="projtb">
-                            <td>{{ $project->proj_id }}</td>
+                        <tr id="projtb"> 
+                            <td>{{ $loop->iteration }}</td>
                             <td>{{ $project->proj_name }}</td>
-                            <td>{{ $project->proj_status }}</td>
+                            <td>
+                                    @if ($project->proj_status==='Completed')
+                                        <div class="text-green-600 dark:text-green">
+                                            {{$project->proj_status}}
+                                        </div>
+                                    @else 
+                                        <div class="text-red-600 dark:text-red">
+                                            {{$project->proj_status}}
+                                        </div>
+                                    @endif
+                                
+
+                            </td>
                             <td>{{ $project->proj_date }}</td>
                         
                             <td class="edit">

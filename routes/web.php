@@ -76,7 +76,7 @@ Route::middleware([
             Route::get('Admin/Project/{job}/Job', [AdminJobController::class, 'show'])->name('Admin.Job.show');
             Route::get('Admin/Job/{job}/edit', [AdminJobController::class, 'edit'])->name('Admin.Job.edit');
             Route::delete('Admin/Job/{job_id}', [AdminJobController::class, 'destroy'])->name('Admin.Job.destroy');
-            Route::put('Admin/Job/{job}',[AdminJobController::class, 'update'])->name('Admin.Job.update');
+            Route::put('Admin/Job/{job}', [AdminJobController::class, 'update'])->name('Admin.Job.update');
             Route::get('/search/', [AdminJobController::class, 'search'])->name('search');
             Route::post('Admin/Job', [AdminJobController::class,'store'])->name('Admin.Job.store');
             

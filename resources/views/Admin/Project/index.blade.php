@@ -10,11 +10,8 @@
 
  <div class="board">
     <br>
-    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-        Button
-    </button>
-        <a id="btn-addnew" href="{{route ('Admin.Pic.create')}}">Add PIC</a>
-        <a id="btn-addnew" href="{{route ('Admin.Project.create')}}">Add Projects</a> <br><br>
+        <a id="btn-addnew" href="{{route ('Admin.Pic.create')}}">Create PIC</a>
+        <a id="btn-addnew" href="{{route ('Admin.Project.create')}}">Create Project</a> <br><br>
         <div>
             <!--table class="w-full text-sm text-center text-black dark:text-black"-->
             <section class="table-body">
@@ -50,8 +47,20 @@
                                     @else
                                         No PIC assigned.
                                     @endif
+                                </td>                        
+
+                                <td>
+                                     @if ($project->proj_status==='Complete')
+                                        <div class="rounded rounded-full text-green-600 dark:text-green">
+                                            {{$project->proj_status}}
+                                        </div>
+                                    @else 
+                                        <div class="rounded rounded-full text-red-600 dark:text-red">
+                                            {{$project->proj_status}}
+                                        </div>
+                                    @endif
+                                
                                 </td>
-                                <td>{{ $project->proj_status }}</td>
                                 <td>{{ $project->proj_date }}</td>
                             
                                 <td class="edit">
